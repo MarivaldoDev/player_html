@@ -67,7 +67,7 @@ function voltaraMusica() {
     // Verifica se atingimos o final da lista de reprodução
     if (indiceAtual >= listaDeMusicas.length) {
         // Se sim, volta para a primeira música
-        indiceAtual = 0;
+        indiceAtual = 1;
     }
     
     // Define a origem do arquivo de áudio como a próxima música na lista
