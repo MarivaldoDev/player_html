@@ -32,3 +32,44 @@ progresso.onchange = function(){
     icone.classList.add('fa-pause')
     icone.classList.remove('fa-play')
 }
+
+var reprodutor = document.getElementById('musica');
+var listaDeMusicas = [
+    'msc/aquelas-coisas.mp3',
+    'msc/meu-sonho.mp3',
+];
+var indiceAtual = 0;
+
+function passarProximaMusica() {
+    // Incrementa o índice atual para passar para a próxima música
+    indiceAtual++;
+    
+    // Verifica se atingimos o final da lista de reprodução
+    if (indiceAtual >= listaDeMusicas.length) {
+        // Se sim, volta para a primeira música
+        indiceAtual = 0;
+    }
+    
+    // Define a origem do arquivo de áudio como a próxima música na lista
+    reprodutor.src = listaDeMusicas[indiceAtual];
+    
+    // Inicia a reprodução da nova música
+    reprodutor.play();
+}
+
+function voltaraMusica() {
+    // Incrementa o índice atual para passar para a próxima música
+    indiceAtual--;
+    
+    // Verifica se atingimos o final da lista de reprodução
+    if (indiceAtual >= listaDeMusicas.length) {
+        // Se sim, volta para a primeira música
+        indiceAtual = 0;
+    }
+    
+    // Define a origem do arquivo de áudio como a próxima música na lista
+    reprodutor.src = listaDeMusicas[indiceAtual];
+    
+    // Inicia a reprodução da nova música
+    reprodutor.play();
+}
