@@ -35,10 +35,12 @@ progresso.onchange = function(){
 
 var reprodutor = document.getElementById('musica');
 var listaDeMusicas = [
-    'msc/aquelas-coisas.mp3',
-    'msc/meu-sonho.mp3',
+    { nome: 'Aquelas Coisas', src: 'msc/aquelas-coisas.mp3' },
+    { nome: 'Meu Sonho', src: 'msc/meu-sonho.mp3' },
+    { nome: 'Meu Pedaço de Pecado', src: 'msc/01-meu-pedaco-de-pecado-joao-gomes-492565.mp3' }
 ];
 var indiceAtual = 0;
+var nomeDaMusicaElemento = document.getElementById('nomeDaMusica');
 
 function passarProximaMusica() {
     // Incrementa o índice atual para passar para a próxima música
@@ -51,10 +53,11 @@ function passarProximaMusica() {
     }
     
     // Define a origem do arquivo de áudio como a próxima música na lista
-    reprodutor.src = listaDeMusicas[indiceAtual];
+    reprodutor.src = listaDeMusicas[indiceAtual].src;
     
     // Inicia a reprodução da nova música
     reprodutor.play();
+    atualizarNomeDaMusica();
 }
 
 function voltaraMusica() {
@@ -68,8 +71,13 @@ function voltaraMusica() {
     }
     
     // Define a origem do arquivo de áudio como a próxima música na lista
-    reprodutor.src = listaDeMusicas[indiceAtual];
+    reprodutor.src = listaDeMusicas[indiceAtual].src;
     
     // Inicia a reprodução da nova música
     reprodutor.play();
+    atualizarNomeDaMusica();
+}
+
+function atualizarNomeDaMusica() {
+    nomeDaMusicaElemento.textContent = listaDeMusicas[indiceAtual].nome;
 }
